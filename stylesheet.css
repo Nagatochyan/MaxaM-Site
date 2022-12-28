@@ -25,3 +25,7 @@ img{
              -50px -50px 24px #00ffff;
     color: aqua;
 }
+body{
+  background-image: url("https://osu.ppy.sh/images/headers/profile-covers/c7.jpg");
+  background-size: cover;
+}
