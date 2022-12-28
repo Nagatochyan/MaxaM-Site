@@ -15,5 +15,9 @@ img{
     height: 200;
 }
 .test{
+    border-radius: 38px;
+    background: linear-gradient(145deg, #00e6b8, #00ffda);
+    box-shadow:  50px 50px 24px #00997a,
+             -50px -50px 24px #00ffff;
     color: aqua;
 }
