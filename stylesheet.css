@@ -11,7 +11,7 @@ background-size: cover
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #1b2538;
+	background-color: #007bff;
 }
 .menuu {
 	float: left;
@@ -31,5 +31,5 @@ background-size: cover
 	background-color: #a9bce2;
 }
 .active {
-	background-color: #da3c41;
+	background-color: #12ff91;
 }
