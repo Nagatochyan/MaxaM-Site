@@ -33,4 +33,43 @@
     .active {
         background-color: #12ff91;
     }
-    
+.article-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.article {
+  width: 30%;
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  margin-top: 10px;
+}
+
+.title a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #777;
+}
