@@ -1,0 +1,68 @@
+
+.top-image-area{
+    width: 100%;
+    height: 400px;
+    background-image: url("https://user-images.githubusercontent.com/94958239/228766816-fc289ce7-8588-4d42-a89d-f1e4fe5dba46.jpg");
+    background-position: 50% 20%;
+    background-size: cover
+    }
+    .menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #007bff;
+    }
+    .menuu {
+        float: left;
+        border-right: 1px solid #bbbbbb;
+    }
+    .menuu:last-child {
+        border-right: none;
+    }
+    .menuu a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .menuu a:hover:not(.active) {
+        background-color: #a9bce2;
+    }
+    .active {
+        background-color: #12ff91;
+    }
+    span.postdate {
+        font-size: 15px;
+        color: #a5aaaf;
+    }
+    .msr_h201 {
+    background: linear-gradient(#F3F5F5, #fff);
+    background: -o-linear-gradient(#F3F5F5, #fff);
+    background: -ms-linear-gradient(#F3F5F5, #fff);
+    background: -moz-linear-gradient(#F3F5F5, #fff);
+    background: -webkit-linear-gradient(#F3F5F5, #fff);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #fff), color-stop(0.00, #F3F5F5));
+    border-bottom: 2px solid #1B73BA;
+    box-sizing: border-box;
+    font-size: 18px;
+    margin: 0 0 20px;
+    padding: 7px 0 5px 10px;
+    }
+    .msr_h401 {
+    font-size: 16px;
+    margin: 0 0 20px;
+    }
+    
+    /* h4青の縦ライン */
+    .msr_h401:before {
+    background-color: #1B73BA;
+    border-radius: 2px;
+    content: "";
+    display: inline-block;
+    height: 15px;
+    margin-right:  8px;
+    vertical-align: middle;
+    width: 4px;
+    }
