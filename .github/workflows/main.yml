@@ -1,0 +1,44 @@
+name: Discord Webhook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send_webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Send Discord Webhook
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d '{
+            "content": "Someone accessed the website!",
+            "embeds": [
+              {
+                "title": "GitHub Pages Visitor",
+                "description": "A visitor accessed the GitHub Pages website.",
+                "fields": [
+                  {
+                    "name": "User",
+                    "value": "${{ github.actor }}",
+                    "inline": true
+                  },
+                  {
+                    "name": "Repository",
+                    "value": "${{ github.repository }}",
+                    "inline": true
+                  },
+                  {
+                    "name": "Commit",
+                    "value": "${{ github.sha }}"
+                  }
+                ]
+              }
+            ]
+          }' $DISCORD_WEBHOOK
