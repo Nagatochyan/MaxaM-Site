@@ -13,9 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Get IP Address
+        run: echo "::set-output name=ip::$(curl -s https://api.ipify.org)"
+
       - name: Send Discord Webhook
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           curl -X POST -H "Content-Type: application/json" -d '{
             "content": "Someone accessed the website!",
@@ -30,6 +33,11 @@ jobs:
                     "inline": true
                   },
                   {
+                    "name": "IP Address",
+                    "value": "${{ steps.get_ip.outputs.ip }}",
+                    "inline": true
+                  },
+                  {
                     "name": "Repository",
                     "value": "${{ github.repository }}",
                     "inline": true
@@ -41,4 +49,5 @@ jobs:
                 ]
               }
             ]
-          }' $DISCORD_WEBHOOK
+          }' $DISCORD_WEBHOOK_URL
+
