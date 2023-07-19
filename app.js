@@ -20,7 +20,7 @@ fetch('https://api.ipify.org?format=json')
         const isp = data.org;
 
         // DiscordのWebhook URL
-        const webhookUrl = 'https://discord.com/api/webhooks/1096773926702559302/X_xXes6OqSokLtF0YDdZxflhm2Kyo9KzoKaizI9mgF5GF6Dl_5wLzWPycb9BtY-giTHT';
+        const webhookUrl = process.env.discord_webhook;
 
         // アクセスした人のデバイス情報をまとめる
         const deviceInfo = {
